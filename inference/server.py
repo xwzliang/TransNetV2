@@ -11,6 +11,7 @@ from PIL import Image
 from transnetv2 import TransNetV2
 from pydantic import BaseModel
 from logging_setup import get_logger
+import threading
 
 logger = get_logger()
 # ----- FastAPI server -----
@@ -20,6 +21,19 @@ app = FastAPI(
     debug=True,
 )
 _model: Optional[TransNetV2] = None
+
+
+@app.post("/self-shutdown")
+async def self_shutdown():
+    def exit_later():
+        # short delay to ensure response is sent
+        import time
+
+        time.sleep(0.1)
+        os._exit(0)  # immediate hard exit
+
+    threading.Thread(target=exit_later, daemon=True).start()
+    return {"status": "shutting down"}
 
 
 @app.post("/load_model")
