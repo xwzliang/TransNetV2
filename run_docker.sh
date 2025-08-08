@@ -1,0 +1,1 @@
+docker run -it --rm --gpus 1 -v ~/videos:/data xwzliang/transnetv2:0.0.1 transnetv2_predict /data/video_summarizer/20240331.第1期上/ff18f2c65abcea007c4bfc938fffd3e607a78c7cca63d829403c7970e8e985b4/20240331.第1期上.mp4 --visualize
