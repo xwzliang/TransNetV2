@@ -1,6 +1,6 @@
 services:
   transnetv2:
-    image: xwzliang/transnetv2_pytorch:0.0.1
+    image: xwzliang/transnetv2:0.0.2
     # user: "broliang"
     container_name: transnetv2
     networks:
@@ -20,7 +20,7 @@ services:
     # environment:
     #   - LD_LIBRARY_PATH=/opt/conda/lib/python3.11/site-packages/nvidia/cudnn/lib:${LD_LIBRARY_PATH}
     volumes:
-      - ./inference-pytorch:/tmp/inference:delegated
+      - ./inference:/tmp/inference:delegated
       - ~/videos:/data
       - /mnt/omv:/Volumes/omv
       - ~/models/.cache/huggingface:/root/.cache/huggingface:rshared

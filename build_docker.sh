@@ -1,1 +1,1 @@
-docker build -t xwzliang/transnetv2:0.0.2 -f ./inference/Dockerfile .
+docker build -t xwzliang/transnetv2_pytorch:0.0.1 -f ./inference-pytorch/Dockerfile .

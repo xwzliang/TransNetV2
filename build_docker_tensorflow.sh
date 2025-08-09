@@ -1,0 +1,1 @@
+docker build -t xwzliang/transnetv2:0.0.2 -f ./inference/Dockerfile .

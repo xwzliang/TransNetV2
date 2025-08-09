@@ -7,6 +7,7 @@ setup(
     install_requires=[
         "fastapi",
         "uvicorn",
+        "python-multipart",
     ],
     entry_points={
         "console_scripts": [
