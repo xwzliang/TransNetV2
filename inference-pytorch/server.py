@@ -58,7 +58,7 @@ def health_check():
     return {"status": "ok"}
 
 
-@app.post("/predict")
+@app.post("/infer")
 async def predict(
     file: UploadFile = File(..., description="Video file to analyze"),
     visualize: bool = Form(False, description="Return visualization image if true"),
@@ -102,7 +102,7 @@ class PredictPathRequest(BaseModel):
     threshold: Optional[float] = 0.5
 
 
-@app.post("/predict_path")
+@app.post("/infer_path")
 def predict_path(req: PredictPathRequest):
     if _model is None:
         load_model()
