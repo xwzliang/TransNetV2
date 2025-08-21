@@ -20,13 +20,13 @@ services:
     # environment:
     #   - LD_LIBRARY_PATH=/opt/conda/lib/python3.11/site-packages/nvidia/cudnn/lib:${LD_LIBRARY_PATH}
     volumes:
-      - ./inference-pytorch:/tmp/inference:delegated
+      - ./inference-pytorch:/tmp/inference-pytorch:delegated
       - ~/videos:/data
       - /mnt/omv:/Volumes/omv
       - ~/models/.cache/huggingface:/root/.cache/huggingface:rshared
     ports:
       - "8007:8000"
-    command: uvicorn server:app --app-dir /tmp/inference --host 0.0.0.0 --port 8000 --reload --log-level debug
+    command: uvicorn server:app --app-dir /tmp/inference-pytorch --host 0.0.0.0 --port 8000
 networks:
   mynet:
     external: true

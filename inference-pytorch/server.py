@@ -104,6 +104,7 @@ class PredictPathRequest(BaseModel):
 
 @app.post("/infer_path")
 def predict_path(req: PredictPathRequest):
+    logger.info(f"Get request: {req}")
     if _model is None:
         load_model()
 
